@@ -1,0 +1,142 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+html{
+  font-size: 10px;
+  box-sizing: border-box;
+}
+body{
+  background-color: #d6efc7;
+}
+.header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #10413b;
+  box-shadow: 0 1rem 2rem 0 #10413b;
+  padding-bottom: 1rem;
+}
+.logo {
+  cursor: pointer;
+  height: 30vmin;
+  transition: all 1s;
+  transform: rotateY(0deg);
+}
+.logo:hover{
+  transform: rotateY(180deg);
+}
+.logo-text{
+  text-transform: uppercase;
+  padding: 2rem 1rem;
+  font-size: 5rem;
+}
+.play-ground{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 8rem 0;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  perspective: 1000px;
+  margin-bottom: -15px;
+}
+
+.play-ground .card{
+  width: 20%;
+  height: 15rem;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+   -ms-user-select: none;
+       user-select: none;
+  padding: 1.5rem 1rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  transition: 0.5s;
+  transform-style: preserve-3d;
+  position: relative;
+  border-radius: 1rem;
+  box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+}
+.play-ground .card div{
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 1rem;
+  transition: 0.5s;
+  background-color: #96bb7c;
+}
+.play-ground .card .front{
+  font-size: 5rem;
+  line-height: 12rem;
+  cursor: pointer;
+  color: #184d47;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.play-ground .card .back{
+  transform: rotateY(180deg);
+  line-height: 11rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.play-ground .card .back img{
+  vertical-align: middle;
+  width: 70%;
+}
+.play-ground .card.opened{
+  transform: rotateY(180deg);
+}
+.play-ground .card.matched{
+  transform: rotateY(180deg);
+}
+@keyframes selected {
+  0% {
+    opacity: 0.2;
+  }
+  30% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 0.9;
+  }
+  70% {
+    opacity: 0.2;
+  }
+  100% {
+    opacity: 0.3;
+  }
+}
+@-webkit-keyframes selected {
+  0% {
+    opacity: 0.2;
+  }
+  30% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 0.9;
+  }
+  70% {
+    opacity: 0.2;
+  }
+  100% {
+    opacity: 0.3;
+  }
+}
+.play-ground .card.matched .back{
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.05) inset;
+  -webkit-animation: selected 0.8s 0s ease 1;
+          animation: selected 0.8s 0s ease 1;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  opacity: 0.4;
+}
